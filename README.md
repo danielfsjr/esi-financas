@@ -2,12 +2,12 @@
 
 ## Badges
 
-![example workflow](https://github.com/ges-cs01/projeto_esi/actions/workflows/rubyonrails.yml/badge.svg)
-[![Maintainability](https://api.codeclimate.com/v1/badges/9478d2940ed2d4391dad/maintainability)](https://codeclimate.com/github/ges-cs01/projeto_esi/maintainability) 
-[![Coverage Status](https://coveralls.io/repos/github/ges-cs01/projeto_esi/badge.svg?branch=main)](https://coveralls.io/github/ges-cs01/projeto_esi?branch=main)
+![example workflow](https://github.com/danielfsjr/esi-financas/actions/workflows/rubyonrails.yml/badge.svg)
+[![Maintainability](https://api.codeclimate.com/v1/badges/c262f6a202d6f3f77a38/maintainability)](https://codeclimate.com/github/danielfsjr/esi-financas/maintainability)
+[![Coverage Status](https://coveralls.io/repos/github/danielfsjr/esi-financas/badge.svg?branch=main)](https://coveralls.io/github/danielfsjr/esi-financas?branch=main)
 
 ## Links
-* Heroku: https://projetoesi.herokuapp.com/
+* Heroku: https://financas-esi.herokuapp.com/
 * Pivotal Tracker: https://www.pivotaltracker.com/n/projects/2603045
 
 ## Integrantes
