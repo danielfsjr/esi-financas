@@ -1,0 +1,20 @@
+<h1>Categorias</h1>
+
+<table class="table table-bordered w-auto">
+  <thead class="table-secondary">
+  <tr>
+    <th class="text-center">Código</th>
+    <th>Nome</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @categories.each do |category| %>
+    <tr>
+      <td class="text-center" style="min-width: 150px"><%= category.id %></td>
+      <td style="min-width: 300px"><%= category.name %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Adicionar Categoria', '/categories/new', 'class' => 'btn btn-primary' %>

@@ -1,0 +1,31 @@
+<h1>Nova transação</h1>
+
+<% if @transacao.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@transacao.errors.count, "erro") %> impedem que a transacao seja gravado no banco de dados:</h2>
+ 
+    <ul>
+    <% @transacao.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with scope: :transacao, url: transacoes_path, local: true do |form| %>
+  <p>
+    <%= form.label :descricao %><br>
+    <%= form.text_field :descricao, id:"Descrição" %>
+  </p>
+ 
+  <p>
+    <%= form.label :valor %><br>
+    <%= form.text_field :valor %>
+  </p>
+
+  <p>
+    <%= form.submit 'Salvar', class: "btn btn-success" %>
+  </p>
+<% end %>
+
+<%= button_to "Voltar", transacoes_path, method: :get, class: "btn btn-secondary" %>

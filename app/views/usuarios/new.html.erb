@@ -1,0 +1,39 @@
+<h1>Novo usuário</h1>
+
+<% if @usuario.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@usuario.errors.count, "erro") %> impedem que o usuario seja gravado no banco de dados:</h2>
+ 
+    <ul>
+    <% @usuario.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with scope: :usuario, url: usuarios_path, local: true do |form| %>
+  <p>
+    <%= form.label :nome %><br>
+    <%= form.text_field :nome %>
+  </p>
+ 
+  <p>
+    <%= form.label :email %><br>
+    <%= form.text_field :email %>
+  </p>
+
+  <p>
+    <%= form.label :senha %><br>
+    <%= form.text_field :senha, type:"password" %>
+  </p>
+
+  <p>
+    <%= form.label :"confirmar senha" %><br>
+    <%= form.text_field :"senha_confirmation", id:"Confirmar senha", type:"password" %>
+  </p>
+
+  <p>
+    <%= form.submit 'Salvar' %>
+  </p>
+<% end %>

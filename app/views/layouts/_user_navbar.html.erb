@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="/">Início</a>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Categorias', '/categories', 'class' => 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Transações', '/transacoes', 'class' => 'nav-link' %>
+        </li>
+      </ul>
+    </div>
+
+    <div class="pe-3">
+      <%= render 'layouts/saldo' %>
+    </div>
+  </div>
+</nav>
