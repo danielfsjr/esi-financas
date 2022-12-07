@@ -4,7 +4,7 @@
 
 ![example workflow](https://github.com/danielfsjr/esi-financas/actions/workflows/rubyonrails.yml/badge.svg)
 [![Maintainability](https://api.codeclimate.com/v1/badges/c262f6a202d6f3f77a38/maintainability)](https://codeclimate.com/github/danielfsjr/esi-financas/maintainability)
-[![Coverage Status](https://coveralls.io/repos/github/danielfsjr/esi-financas/badge.svg?branch=main)](https://coveralls.io/github/danielfsjr/esi-financas?branch=main)
+
 
 ## Links
 * Heroku: https://financas-esi.herokuapp.com/
