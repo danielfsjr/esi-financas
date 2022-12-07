@@ -1,5 +1,6 @@
 Dado('que eu esteja logado') do
   cookies[:stub_user_id] = 1
+  visit '/'
 end
 
 Quando('eu estiver na página de listagem de transações') do
