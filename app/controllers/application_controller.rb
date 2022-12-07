@@ -16,6 +16,6 @@ class ApplicationController < ActionController::Base
   end
 
   def saldo
-    Transacao.sum('valor')
+    Transacao.where(userId: session[:user_id]).sum('valor')
   end
 end
