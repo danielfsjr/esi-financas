@@ -2,6 +2,7 @@
 class TransacoesController < ApplicationController
   def new
     @transacao = Transacao.new
+    @categories = Category.where(user_id: session[:user_id]).map { |category| [category.name, category.id] }
   end
 
   def create
@@ -16,7 +17,6 @@ class TransacoesController < ApplicationController
 
   def index
     redirect_to '/user_sessions/new' unless session[:user_id]
-
     @transacoes = Transacao.where(userId: session[:user_id])
   end
 
@@ -30,6 +30,6 @@ class TransacoesController < ApplicationController
 
   def transacao_params
     defaults = {userId: session[:user_id]}
-    params.require(:transacao).permit(:valor, :descricao).reverse_merge(defaults)
+    params.require(:transacao).permit(:category_id, :valor, :descricao).reverse_merge(defaults)
   end
 end
