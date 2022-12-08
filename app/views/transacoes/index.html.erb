@@ -3,6 +3,7 @@
 <table class="table">
   <thead>
     <tr>
+      <th>Categoria</th>
       <th>Descrição</th>
       <th>Valor</th>
       <th>Ação</th>
@@ -12,12 +13,9 @@
   <tbody>
     <% @transacoes.each do |transacao| %>
       <tr>
-        <td>
-          <%= transacao.descricao %>
-        </td>
-        <td>
-          <%= transacao.valor %>
-        </td>
+        <td><%= transacao.category.name %></td>
+        <td><%= transacao.descricao %></td>
+        <td><%= transacao.valor %></td>
         <td>
           <%= button_to "Detalhes", transaco_path(id: transacao.id), method: :get, class: "btn btn-primary" %>
         </td>

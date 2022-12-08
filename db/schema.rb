@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_221_110_001_738) do
+ActiveRecord::Schema[7.0].define(version: 20_221_208_010_549) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.integer "user_id"
@@ -21,9 +21,10 @@ ActiveRecord::Schema[7.0].define(version: 20_221_110_001_738) do
   create_table "transacaos", force: :cascade do |t|
     t.decimal "valor"
     t.string "descricao"
+    t.string "userId"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "userId"
+    t.integer "category_id"
   end
 
   create_table "usuarios", force: :cascade do |t|
