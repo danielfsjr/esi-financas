@@ -13,7 +13,7 @@
   <tbody>
     <% @transacoes.each do |transacao| %>
       <tr>
-        <td><%= transacao.category.name %></td>
+        <td><%= transacao.category&.name %></td>
         <td><%= transacao.descricao %></td>
         <td><%= transacao.valor %></td>
         <td>

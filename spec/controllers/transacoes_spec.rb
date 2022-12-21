@@ -12,7 +12,7 @@ RSpec.describe TransacoesController, type: :controller do
           valor: -100
         }
       }
-      # assert_redirected_to "/transacoes"
+      assert_redirected_to "/transacoes"
     end
 
     it "return unprocessable_entity if transaction is invalid" do
