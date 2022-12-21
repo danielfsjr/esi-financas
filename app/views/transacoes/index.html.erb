@@ -1,28 +1,59 @@
 <h1>Listar transações</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Categoria</th>
-      <th>Descrição</th>
-      <th>Valor</th>
-      <th>Ação</th>
-    </tr>
-  </thead>
+<div class="card mb-3">
+  <div class="card-header">
+    <h5 class="mt-2">Filtro</h5>
+  </div>
+  <div class="card-body">
+    <%= form_with method: :get, url: transacoes_path, local: true do |form| %>
+      <% if @categories %>
+        <div class="row mb-3">
+          <div class="form-group col-md-5">
+            <%= form.label 'Categoria', 'for' => 'category', 'class' => 'form-label' %>
+            <%= form.select(:category_id, @categories.map { |c| [c.name, c.id] }.insert(0, ''), {}, 'id' => 'category', 'class' => 'form-select', 'value' => params[:category_id]) %>
+          </div>
+        </div>
+      <% end %>
 
-  <tbody>
-    <% @transacoes.each do |transacao| %>
-      <tr>
-        <td><%= transacao.category&.name %></td>
-        <td><%= transacao.descricao %></td>
-        <td><%= transacao.valor %></td>
-        <td>
-          <%= button_to "Detalhes", transaco_path(id: transacao.id), method: :get, class: "btn btn-primary" %>
-        </td>
-      </tr>
+      <div class="form-group mb-3">
+        <%= form.label 'Descrição', 'for' => 'descricao', 'class' => 'form-label' %>
+        <%= form.text_field :descricao, 'id' => 'descricao', 'class' => 'form-control', 'value' => params[:descricao], 'placeholder' => 'Informe a descrição da transação' %>
+      </div>
+
+      <%= form.submit 'Buscar', class: "btn btn-primary px-4" %>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
+
+<div class="card mb-3">
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Categoria</th>
+          <th>Descrição</th>
+          <th>Valor</th>
+          <th>Ação</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @transacoes.each do |transacao| %>
+          <tr>
+            <td><%= transacao.category&.name %></td>
+            <td><%= transacao.descricao %></td>
+            <td><%= transacao.valor %></td>
+            <td>
+              <%= button_to "Detalhes", transaco_path(id: transacao.id), method: :get, class: "btn btn-primary" %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 <%= button_to "Nova transação", new_transaco_path, method: :get, class: "my-2 btn btn-success" %>
 <%= button_to "Voltar", root_path, method: :get, class: "btn btn-secondary" %>
