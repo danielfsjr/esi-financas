@@ -5,6 +5,7 @@
   <tr>
     <th class="text-center">Código</th>
     <th>Nome</th>
+    <th>Detalhes</th>
   </tr>
   </thead>
   <tbody>
@@ -12,6 +13,9 @@
     <tr>
       <td class="text-center" style="min-width: 150px"><%= category.id %></td>
       <td style="min-width: 300px"><%= category.name %></td>
+      <td>
+          <%= button_to "Detalhes", category_path(id: category.id), method: :get, class: "btn btn-primary" %>
+        </td>
     </tr>
   <% end %>
   </tbody>

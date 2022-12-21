@@ -1,0 +1,8 @@
+<h1> Detalhes da categoria <%= @category.id %> </h1>
+
+<p> 
+  <strong>Nome:</strong>
+  <%= @category.name %>
+</p>
+
+<%= button_to "Voltar", categories_path, method: :get, class: "btn btn-secondary" %>

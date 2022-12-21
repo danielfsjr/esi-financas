@@ -17,4 +17,9 @@ class CategoriesController < ApplicationController
       headers["Content-Type"] = "text/html"
     end
   end
+
+  def show
+    @category = Category.where(id: params[:id], user_id: session[:user_id]).first
+    redirect_to '/categories' unless @category
+  end
 end
