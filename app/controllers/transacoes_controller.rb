@@ -17,7 +17,8 @@ class TransacoesController < ApplicationController
 
   def index
     redirect_to '/user_sessions/new' unless session[:user_id]
-    @transacoes = Transacao.where(userId: session[:user_id])
+    @categories = Category.where(user_id: session[:user_id])
+    @transacoes = Transacao.where(predicados_filtro)
   end
 
   def show
@@ -30,5 +31,16 @@ class TransacoesController < ApplicationController
   def transacao_params
     defaults = {userId: session[:user_id]}
     params.require(:transacao).permit(:category_id || nil, :valor, :descricao).reverse_merge(defaults)
+  end
+
+  def predicados_filtro
+    predicados = {userId: session[:user_id]}
+    category_id = params['category_id']
+    descricao = params['descricao']
+
+    predicados['category_id'] = category_id if category_id && category_id != ''
+    predicados['descricao'] = descricao if descricao && descricao != ''
+
+    predicados
   end
 end
